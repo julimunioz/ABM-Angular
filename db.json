@@ -1,0 +1,21 @@
+{
+  "userList": [
+    {
+      "name": "Example",
+      "surname": "ExampleSurname",
+      "phone": "15656251",
+      "email": "example@example",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

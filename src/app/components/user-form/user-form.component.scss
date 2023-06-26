@@ -1,0 +1,21 @@
+
+.input-group{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6px;
+}
+
+.button-group{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.button{
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.input{
+    width: 48%;
+}

@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.page-background {
+   background-color: #f5f6f8;
+ }
+
+body .p-menubar {
+   display: block;
+   box-shadow: 1px 1px 10px 2px #a7a6a6;
+   margin-top: 12px;
+}
+
+.p-dialog .p-dialog-content {
+   padding: 1.5rem 1.5rem 1.5rem 1.5rem
+}
+
+.p-card {
+   box-shadow: 1px 1px 10px 2px #919191;
+   
+}
+
+

@@ -1,0 +1,39 @@
+
+<p-card class="card-custom">
+
+    <div class="container">
+
+        <div>
+            <input pInputText type="text" (input)="filterTable($event)"  placeholder="Search">
+        </div>
+
+        <div>
+            <p-table [value]="(users$ | async)!" [paginator]="true" [rows]="rowsPerPage">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.surname }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <p-button icon="pi pi-pencil" (click)="editUser(user.id)" class="button-update" styleClass="p-button-rounded p-button-outlined"></p-button>
+                            <p-button icon="pi pi-times" (click)="deleteUser(user.id)" styleClass="p-button-rounded p-button-danger p-button-outlined"></p-button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</p-card>
+
+

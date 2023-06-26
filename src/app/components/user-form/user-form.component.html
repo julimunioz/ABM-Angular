@@ -1,0 +1,19 @@
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+        <input class="input" id="name" type="text" pInputText formControlName="name" placeholder="Name" autocomplete="off"/>
+        <input class="input" id="surname" type="text" pInputText formControlName="surname" placeholder="Surname" autocomplete="off"/>
+    </div>
+
+    <div class="input-group">
+        <input class="input" id="phone" type="text" pInputText formControlName="phone" placeholder="Phone" autocomplete="off"/>
+        <input class="input" id="email" type="email" pInputText formControlName="email" placeholder="Mail Adress" autocomplete="off"/>
+    </div>
+    
+    <div class="button-group">
+        <p-button class="button" type="submit" [label]="(isEventActive$ | async)! ? 'Update' : 'Create'" styleClass="p-button-outlined"></p-button>
+        <p-button label="Cancel" styleClass="p-button-outlined p-button-danger" (click)="closeModal()"></p-button>
+    </div>
+</form>
+
+
