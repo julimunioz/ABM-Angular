@@ -52,9 +52,7 @@ export class UserTableComponent implements OnInit {
   }
 
   deleteUser(userId: number){
-    this.apiService.deleteUser(userId).subscribe(() => (
-      this.store.dispatch(deleteUser({ id: userId }))
-    ));
+    this.store.dispatch(deleteUser({ id: userId }));
   }
   
   filterTable(event: any) {

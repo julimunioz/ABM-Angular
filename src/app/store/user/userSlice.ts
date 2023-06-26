@@ -2,8 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { User } from "src/app/models/user";
 
 import { addUser, deleteUser, getUserById, isSelectedUser, updateUser } from "../actions";
-import { getUsersSuccess } from "../api-actions";
-
+import { addUserSuccess, deleteUserSucces, getUsersSuccess, updateUserSuccess } from "../api-actions";
 
 export interface UserState {
     user: User[];
@@ -17,7 +16,7 @@ const initialState: UserState = {
 
 export const userReducer = createReducer(
     initialState,
-    on(addUser, (currentState, action) => ({ ...currentState, user: [...currentState.user, action.user]  })),
+    on(addUserSuccess, (currentState, action) => ({ ...currentState, user: [...currentState.user, action.user]  })),
 
     on(getUsersSuccess, (currentState, action) => ({ ...currentState, user: action.user })),
 
@@ -26,13 +25,13 @@ export const userReducer = createReducer(
         selectedUser: currentState.user.find(user => user.id === action.id) || null
     })),
 
-    on(updateUser, (currentState, action) => ({ 
+    on(updateUserSuccess, (currentState, action) => ({ 
         ...currentState,
         user: currentState.user.map((user) => user.id == action.user.id ? action.user : user),
         selectedUser: null
     })),
     
-    on(deleteUser, (currentState, action) => ({
+    on(deleteUserSucces, (currentState, action) => ({
         ...currentState,
         user: currentState.user.filter((user) => user.id !== action.id)
     })),

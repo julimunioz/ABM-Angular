@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { Store } from '@ngrx/store';
 import { Observable, take } from 'rxjs';
 
@@ -67,30 +68,17 @@ export class UserFormComponent implements OnInit{
                 email: formData.email
               }
               
-              this.apiService.updateUser(user).subscribe({
-                next: () => {
-                  this.store.dispatch(updateUser({ user }));
-                  this.formGroup.reset();
-                  this.store.dispatch(closeModal());
-                  this.store.dispatch(setInactiveEvent());
-                },
-                error: () => {
-                  alert('Error while editing user');
-                }
-              });
+              this.store.dispatch(updateUser({user}));
+              this.formGroup.reset();
+              this.store.dispatch(closeModal());
+              this.store.dispatch(setInactiveEvent());
+
             } 
           })
         } else {
-          this.apiService.addUser(formData).subscribe({
-            next: (newUser) => {
-              this.store.dispatch(addUser({ user: newUser }));
-              this.formGroup.reset();
-              this.store.dispatch(closeModal());
-            },
-            error: () => {
-              alert("Error while creating user")
-            }
-          })
+          this.store.dispatch(addUser({ user: formData }));
+          this.formGroup.reset();
+          this.store.dispatch(closeModal());
         }
       })
     } else {

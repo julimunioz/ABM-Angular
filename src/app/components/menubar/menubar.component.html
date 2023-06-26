@@ -1,12 +1,12 @@
 <p-menubar>
     <div class="navbar-title">
         <div>
-        <span class="title-text">ABM Evoltis</span>
+        <span class="title-text">ABM</span>
         </div>
    
         <div>
             <p-button class="navbar-button" styleClass="p-button-success" (click)="openModal()" icon="pi pi-user-plus" label="New"> </p-button>
-            <p-dialog [header]="(isEventActive$ | async) ? 'Update User' : 'Add User'" [visible]="(isModalOpen$ | async)!" [modal]="true" [style]="{ width: '50vw' }" >
+            <p-dialog [header]="(isEventActive$ | async) ? 'Update User' : 'Add User'" [visible]="(isModalOpen$ | async)!" [modal]="true" [style]="{ width: '50vw' }" [closable]="false" >
                 <app-user-form></app-user-form>
             </p-dialog>
         </div>
